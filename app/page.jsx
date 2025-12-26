@@ -17,23 +17,9 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-river-900 via-river-800 to-river-950" />
           
-          {/* Animated gradient orbs */}
-          <motion.div 
-            className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-sunset-500/20 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.2, 0.3, 0.2],
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-river-400/20 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.3, 0.2],
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
+          {/* Gradient orbs */}
+          <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-sunset-500/20 rounded-full blur-3xl animate-orb-pulse" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-river-400/20 rounded-full blur-3xl animate-orb-pulse-reverse" />
           
           {/* Water pattern overlay */}
           <div className="absolute inset-0 bg-water-pattern opacity-10" />

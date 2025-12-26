@@ -112,3 +112,36 @@
   @apply bg-river-500;
 }
 
+/* Orb animations - GPU accelerated */
+@keyframes orb-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+@keyframes orb-pulse-reverse {
+  0%, 100% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-orb-pulse-reverse {
+  animation: orb-pulse-reverse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
