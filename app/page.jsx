@@ -68,11 +68,11 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] mb-6"
             >
-              Leeds & District<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-300 to-sunset-500">
+              Leeds & District<br />
                 Amalgamated Society
-              </span>
               <br />of Anglers
+              </span>
             </motion.h1>
 
             <motion.p
@@ -233,6 +233,7 @@ export default function HomePage() {
             subtitle="Compete in our regular matches and championships"
             link="/matches/calendar"
             linkText="View full calendar"
+            dark
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

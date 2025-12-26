@@ -1,21 +1,109 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Mail, Phone, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import { anglersClub } from '@/lib/data';
 
+function FormError({ message }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -5 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -5 }}
+      className="flex items-center gap-1.5 mt-2 text-red-600 text-sm"
+    >
+      <AlertCircle className="w-4 h-4 shrink-0" />
+      <span>{message}</span>
+    </motion.div>
+  );
+}
+
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, sent
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Please enter your name';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        return null;
+      case 'email':
+        if (!value.trim()) return 'Please enter your email address';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email address';
+        return null;
+      case 'subject':
+        if (!value) return 'Please select a subject';
+        return null;
+      case 'message':
+        if (!value.trim()) return 'Please enter your message';
+        if (value.trim().length < 10) return 'Message must be at least 10 characters';
+        return null;
+      default:
+        return null;
+    }
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+    
+    // Clear error when user starts typing
+    if (touched[id]) {
+      const error = validateField(id, value);
+      setErrors(prev => ({ ...prev, [id]: error }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { id, value } = e.target;
+    setTouched(prev => ({ ...prev, [id]: true }));
+    const error = validateField(id, value);
+    setErrors(prev => ({ ...prev, [id]: error }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const fields = ['name', 'email', 'subject', 'message'];
+    
+    fields.forEach(field => {
+      const error = validateField(field, formData[field]);
+      if (error) newErrors[field] = error;
+    });
+    
+    setErrors(newErrors);
+    setTouched({ name: true, email: true, subject: true, message: true });
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+    
     setFormStatus('sending');
     // Simulate form submission
     setTimeout(() => {
       setFormStatus('sent');
     }, 1500);
+  };
+
+  const getInputClassName = (fieldName) => {
+    const baseClass = "w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all";
+    if (errors[fieldName] && touched[fieldName]) {
+      return `${baseClass} border-red-300 focus:ring-red-500 focus:border-transparent bg-red-50`;
+    }
+    return `${baseClass} border-river-200 focus:ring-sunset-500 focus:border-transparent`;
   };
 
   return (
@@ -55,7 +143,7 @@ export default function ContactPage() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-river-700 mb-2">
@@ -64,10 +152,15 @@ export default function ContactPage() {
                       <input
                         type="text"
                         id="name"
-                        required
-                        className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-shadow"
+                        value={formData.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClassName('name')}
                         placeholder="John Smith"
                       />
+                      <AnimatePresence>
+                        {errors.name && touched.name && <FormError message={errors.name} />}
+                      </AnimatePresence>
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-river-700 mb-2">
@@ -76,10 +169,15 @@ export default function ContactPage() {
                       <input
                         type="email"
                         id="email"
-                        required
-                        className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-shadow"
+                        value={formData.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClassName('email')}
                         placeholder="john@example.com"
                       />
+                      <AnimatePresence>
+                        {errors.email && touched.email && <FormError message={errors.email} />}
+                      </AnimatePresence>
                     </div>
                   </div>
 
@@ -90,7 +188,9 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-shadow"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-all"
                       placeholder="07123 456789"
                     />
                   </div>
@@ -101,8 +201,10 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="subject"
-                      required
-                      className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-shadow"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={getInputClassName('subject')}
                     >
                       <option value="">Select a subject...</option>
                       <option value="membership">Membership Enquiry</option>
@@ -112,6 +214,9 @@ export default function ContactPage() {
                       <option value="club">The Anglers Club</option>
                       <option value="other">Other</option>
                     </select>
+                    <AnimatePresence>
+                      {errors.subject && touched.subject && <FormError message={errors.subject} />}
+                    </AnimatePresence>
                   </div>
 
                   <div>
@@ -121,10 +226,15 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       rows={6}
-                      required
-                      className="w-full px-4 py-3 border border-river-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 focus:border-transparent transition-shadow resize-none"
+                      value={formData.message}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`${getInputClassName('message')} resize-none`}
                       placeholder="How can we help you?"
                     />
+                    <AnimatePresence>
+                      {errors.message && touched.message && <FormError message={errors.message} />}
+                    </AnimatePresence>
                   </div>
 
                   <button

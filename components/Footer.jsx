@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Fish, MapPin, Phone, Mail, Facebook, ExternalLink } from 'lucide-react';
+import CurrentYear from './ui/CurrentYear';
 
 const footerLinks = {
   waters: [
@@ -161,7 +162,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-river-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-river-400 text-sm">
-            © {new Date().getFullYear()} Leeds and District ASA. All rights reserved.
+            © <CurrentYear /> Leeds and District ASA. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-river-400 text-sm">
             <span>We accept</span>
