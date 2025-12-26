@@ -129,7 +129,7 @@ export default function CookiesPage() {
                   href="https://tools.google.com/dlpage/gaoptout" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sunset-600 hover:text-sunset-700"
+                  className="text-sunset-700 hover:text-sunset-800"
                 >
                   Google Analytics Opt-out Browser Add-on
                 </a>.
@@ -154,22 +154,22 @@ export default function CookiesPage() {
             <h3>Browser-Specific Instructions</h3>
             <ul>
               <li>
-                <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-sunset-600 hover:text-sunset-700">
+                <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-sunset-700 hover:text-sunset-800">
                   Google Chrome
                 </a>
               </li>
               <li>
-                <a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-sunset-600 hover:text-sunset-700">
+                <a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-sunset-700 hover:text-sunset-800">
                   Mozilla Firefox
                 </a>
               </li>
               <li>
-                <a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-sunset-600 hover:text-sunset-700">
+                <a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-sunset-700 hover:text-sunset-800">
                   Safari
                 </a>
               </li>
               <li>
-                <a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-sunset-600 hover:text-sunset-700">
+                <a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-sunset-700 hover:text-sunset-800">
                   Microsoft Edge
                 </a>
               </li>

@@ -16,7 +16,7 @@ export default function WaterCard({ water, type, index = 0 }) {
       {/* Image placeholder */}
       <div className="relative h-48 overflow-hidden bg-gradient-to-br from-river-200 to-river-300">
         <div className="absolute inset-0 flex items-center justify-center">
-          <Fish className="w-16 h-16 text-river-400" />
+          <Fish className="w-16 h-16 text-river-400" aria-hidden="true" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-river-950/60 to-transparent" />
         
@@ -56,10 +56,10 @@ export default function WaterCard({ water, type, index = 0 }) {
 
         <Link 
           href={`/waters/${type}/${water.id}`}
-          className="inline-flex items-center gap-2 text-sunset-600 font-medium hover:text-sunset-700 transition-colors group/link"
+          className="inline-flex items-center gap-2 text-sunset-700 font-bold hover:text-sunset-800 transition-colors group/link"
         >
           More details
-          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
         </Link>
       </div>
     </motion.article>

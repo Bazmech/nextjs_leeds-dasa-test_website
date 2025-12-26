@@ -14,7 +14,7 @@ function FormError({ message }) {
       exit={{ opacity: 0, y: -5 }}
       className="flex items-center gap-1.5 mt-2 text-red-600 text-sm"
     >
-      <AlertCircle className="w-4 h-4 shrink-0" />
+      <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
       <span>{message}</span>
     </motion.div>
   );
@@ -134,7 +134,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="p-8 bg-green-50 rounded-2xl border border-green-200 text-center"
                 >
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" aria-hidden="true" />
                   <h3 className="font-display text-xl font-bold text-green-800 mb-2">
                     Message Sent!
                   </h3>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     ) : (
                       <>
                         Send Message
-                        <Send className="w-5 h-5 ml-2" />
+                        <Send className="w-5 h-5 ml-2" aria-hidden="true" />
                       </>
                     )}
                   </button>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                 {/* Address */}
                 <div className="flex items-start gap-4 p-6 bg-river-50 rounded-xl">
                   <div className="w-12 h-12 rounded-lg bg-river-700 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
+                    <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-river-900 mb-2">Address</h3>
@@ -292,13 +292,13 @@ export default function ContactPage() {
                 {/* Email */}
                 <div className="flex items-start gap-4 p-6 bg-river-50 rounded-xl">
                   <div className="w-12 h-12 rounded-lg bg-sunset-500 flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6 text-white" />
+                    <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-river-900 mb-2">Email</h3>
                     <a 
                       href="mailto:info@leedsdasa.co.uk" 
-                      className="text-sunset-600 hover:text-sunset-700 transition-colors"
+                      className="text-sunset-700 hover:text-sunset-800 transition-colors"
                     >
                       info@leedsdasa.co.uk
                     </a>
@@ -308,7 +308,7 @@ export default function ContactPage() {
                 {/* Opening Hours */}
                 <div className="flex items-start gap-4 p-6 bg-river-50 rounded-xl">
                   <div className="w-12 h-12 rounded-lg bg-earth-600 flex items-center justify-center shrink-0">
-                    <Clock className="w-6 h-6 text-white" />
+                    <Clock className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-river-900 mb-2">Club Opening Hours</h3>
@@ -323,9 +323,9 @@ export default function ContactPage() {
               </div>
 
               {/* Map placeholder */}
-              <div className="aspect-[4/3] rounded-2xl bg-river-200 flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] rounded-2xl bg-river-200 flex items-center justify-center overflow-hidden" role="img" aria-label="Map showing club location">
                 <div className="text-center">
-                  <MapPin className="w-12 h-12 text-river-400 mx-auto mb-2" />
+                  <MapPin className="w-12 h-12 text-river-400 mx-auto mb-2" aria-hidden="true" />
                   <span className="text-river-500">Interactive map</span>
                 </div>
               </div>

@@ -100,7 +100,7 @@ export default function PrivacyPage() {
             <h2>8. Cookies</h2>
             <p>
               Our website uses cookies to enhance your browsing experience. For more information, 
-              please see our <a href="/cookies" className="text-sunset-600 hover:text-sunset-700">Cookie Policy</a>.
+              please see our <a href="/cookies" className="text-sunset-700 hover:text-sunset-800">Cookie Policy</a>.
             </p>
 
             <h2>9. Third-Party Links</h2>

@@ -65,7 +65,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-white/70 max-w-2xl mb-10 leading-relaxed"
+              className="text-xl text-river-100 max-w-2xl mb-10 leading-relaxed"
             >
               Join one of the largest and oldest angling associations in England. 
               Access over 40 waters across rivers, canals, and lakes with your membership.
@@ -79,14 +79,14 @@ export default function HomePage() {
             >
               <Link href="/membership" className="btn-primary text-lg px-8 py-4">
                 Become a Member
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
               </Link>
               <Link 
                 href="/waters" 
                 className="inline-flex items-center gap-2 px-6 py-4 text-white font-semibold hover:bg-white/10 rounded-lg transition-colors"
               >
                 Explore Our Waters
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5" aria-hidden="true" />
               </Link>
             </motion.div>
 
@@ -103,10 +103,10 @@ export default function HomePage() {
                 { icon: Calendar, value: '365', label: 'Days Access' },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <stat.icon className="w-5 h-5 text-sunset-400" />
+                  <stat.icon className="w-5 h-5 text-sunset-400" aria-hidden="true" />
                   <div>
                     <span className="font-display text-2xl font-bold text-white">{stat.value}</span>
-                    <span className="ml-2 text-white/60">{stat.label}</span>
+                    <span className="ml-2 text-river-200">{stat.label}</span>
                   </div>
                 </div>
               ))}
@@ -130,7 +130,7 @@ export default function HomePage() {
       <section className="bg-sunset-500 py-6">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <CreditCard className="w-8 h-8 text-white" />
+            <CreditCard className="w-8 h-8 text-white" aria-hidden="true" />
             <p className="text-white font-semibold text-lg">
               As soon as you pay, you can go fishing! Simply show your PayPal receipt as proof of membership.
             </p>
@@ -240,11 +240,11 @@ export default function HomePage() {
                   }`}>
                     {match.type}
                   </span>
-                  <span className="text-white/60 text-sm">{match.time}</span>
+                  <span className="text-river-200 text-sm">{match.time}</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-white mb-2">{match.name}</h3>
-                <div className="flex items-center gap-2 text-white/60">
-                  <MapPin className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-river-200">
+                  <MapPin className="w-4 h-4" aria-hidden="true" />
                   <span className="text-sm">{match.venue}</span>
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/10">
@@ -276,7 +276,7 @@ export default function HomePage() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-sunset-600 font-semibold mb-4"
+                  className="text-sunset-700 font-semibold mb-4"
                 >
                   Social Club
                 </motion.span>
@@ -306,12 +306,12 @@ export default function HomePage() {
                 >
                   <Link href="/anglers-club" className="btn-secondary">
                     Visit The Anglers Club
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
                   </Link>
                 </motion.div>
               </div>
               <div className="relative h-64 lg:h-auto bg-gradient-to-br from-river-700 to-river-800 flex items-center justify-center">
-                <Fish className="w-32 h-32 text-white/20" />
+                <Fish className="w-32 h-32 text-white/20" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function HomePage() {
             </div>
             <Link href="/forum" className="btn-primary whitespace-nowrap">
               Join Our Forum
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
             </Link>
           </div>
         </div>

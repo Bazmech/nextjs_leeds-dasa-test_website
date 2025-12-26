@@ -94,7 +94,7 @@ export default function ForumPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-sunset-600 font-semibold mb-4 block">Members Newsletter</span>
+              <span className="text-sunset-700 font-semibold mb-4 block">Members Newsletter</span>
               <h2 className="section-title mb-6">
                 Stay Informed with Monthly Updates
               </h2>

@@ -24,16 +24,16 @@ export default function SectionHeader({
         <div>
           <h2 className={`font-display text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 ${dark ? 'text-white' : 'text-river-900'}`}>{title}</h2>
           {subtitle && (
-            <p className={`text-lg md:text-xl max-w-2xl ${dark ? 'text-white/70' : 'text-river-600'}`}>{subtitle}</p>
+            <p className={`text-lg md:text-xl max-w-2xl ${dark ? 'text-river-200' : 'text-river-600'}`}>{subtitle}</p>
           )}
         </div>
         {link && (
           <Link
             href={link}
-            className={`inline-flex items-center gap-2 font-semibold transition-colors group mt-2 ${dark ? 'text-sunset-400 hover:text-sunset-300' : 'text-sunset-600 hover:text-sunset-700'}`}
+            className={`inline-flex items-center gap-2 font-semibold transition-colors group mt-2 ${dark ? 'text-sunset-400 hover:text-sunset-300' : 'text-sunset-700 hover:text-sunset-800'}`}
           >
             {linkText}
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         )}
       </div>

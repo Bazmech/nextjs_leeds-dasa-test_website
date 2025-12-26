@@ -73,7 +73,7 @@ export default function MembershipPage() {
                 <Link
                   href={type.href}
                   className={`inline-flex items-center gap-2 font-semibold ${
-                    type.featured ? 'text-sunset-600 hover:text-sunset-700' : 'text-river-700 hover:text-river-800'
+                    type.featured ? 'text-sunset-700 hover:text-sunset-800' : 'text-river-700 hover:text-river-800'
                   }`}
                 >
                   Learn more

@@ -36,7 +36,7 @@ export default function MatchesPage() {
                     View all upcoming matches including league rounds, open matches, and championships. 
                     Book your place and see results.
                   </p>
-                  <span className="inline-flex items-center gap-2 text-sunset-600 font-semibold group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-sunset-700 font-semibold group-hover:gap-3 transition-all">
                     View calendar
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -62,7 +62,7 @@ export default function MatchesPage() {
                     Stay informed about society matters by attending our regular delegates meetings 
                     and annual general meeting.
                   </p>
-                  <span className="inline-flex items-center gap-2 text-sunset-600 font-semibold group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-sunset-700 font-semibold group-hover:gap-3 transition-all">
                     View meetings
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -88,7 +88,7 @@ export default function MatchesPage() {
             </div>
             <Link
               href="/matches/calendar"
-              className="hidden md:inline-flex items-center gap-2 text-sunset-600 font-semibold hover:gap-3 transition-all"
+              className="hidden md:inline-flex items-center gap-2 text-sunset-700 font-semibold hover:gap-3 transition-all"
             >
               View full calendar
               <ArrowRight className="w-4 h-4" />
@@ -121,7 +121,7 @@ export default function MatchesPage() {
                 <h3 className="font-display text-xl font-bold text-river-900 mb-2">{match.name}</h3>
                 <p className="text-river-600 text-sm mb-4">{match.venue}</p>
                 <div className="pt-4 border-t border-river-100">
-                  <span className="text-sunset-600 font-medium">
+                  <span className="text-sunset-700 font-medium">
                     {new Date(match.date).toLocaleDateString('en-GB', {
                       weekday: 'long',
                       day: 'numeric',

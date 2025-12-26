@@ -223,14 +223,14 @@ export default function Header() {
       <nav className="container-custom" ref={menuRef} aria-label="Main navigation">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-river-500 focus-visible:ring-offset-2 rounded-xl">
+          <Link href="/" aria-label="Leeds DASA - Home" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-river-500 focus-visible:ring-offset-2 rounded-xl">
             <div className={clsx(
               'flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300',
               isScrolled 
                 ? 'bg-river-700' 
                 : 'bg-white/20 backdrop-blur-sm'
             )}>
-              <Fish className={clsx(
+              <Fish aria-hidden="true" className={clsx(
                 'w-7 h-7 transition-colors duration-300',
                 isScrolled ? 'text-white' : 'text-white'
               )} />

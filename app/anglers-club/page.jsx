@@ -92,7 +92,7 @@ export default function AnglersClubPage() {
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sunset-600 font-semibold hover:text-sunset-700"
+                className="inline-flex items-center gap-2 text-sunset-700 font-semibold hover:text-sunset-800"
               >
                 Get directions
                 <ExternalLink className="w-4 h-4" />

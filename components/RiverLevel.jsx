@@ -135,7 +135,7 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
         <p className="text-river-500 text-sm mb-4">{error}</p>
         <button
           onClick={fetchData}
-          className="flex items-center gap-2 text-sunset-600 text-sm font-medium hover:text-sunset-700"
+          className="flex items-center gap-2 text-sunset-700 text-sm font-medium hover:text-sunset-800"
         >
           <RefreshCw className="w-4 h-4" />
           Retry
@@ -284,7 +284,7 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
           href={htmlUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block mt-4 text-center text-sm text-sunset-600 hover:text-sunset-700 font-medium"
+          className="block mt-4 text-center text-sm text-sunset-700 hover:text-sunset-800 font-medium"
         >
           View on Environment Agency →
         </a>

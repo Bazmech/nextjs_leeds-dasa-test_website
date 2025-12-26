@@ -69,7 +69,7 @@ export default function WatersPage() {
                       </span>
                     </div>
                     <p className="text-river-600 mb-6">{type.description}</p>
-                    <span className="inline-flex items-center gap-2 text-sunset-600 font-semibold group-hover:gap-3 transition-all">
+                    <span className="inline-flex items-center gap-2 text-sunset-700 font-semibold group-hover:gap-3 transition-all">
                       View {type.name.toLowerCase()}
                       <ArrowRight className="w-4 h-4" />
                     </span>
