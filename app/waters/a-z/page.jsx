@@ -92,7 +92,7 @@ export default function WatersAZPage() {
                   href={hasWaters ? `#letter-${letter}` : undefined}
                   className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${
                     hasWaters
-                      ? 'bg-river-100 text-river-700 hover:bg-sunset-500 hover:text-white'
+                      ? 'bg-river-100 text-river-700 hover:bg-sunset-600 hover:text-white'
                       : 'text-river-300 cursor-default'
                   }`}
                 >
@@ -116,7 +116,7 @@ export default function WatersAZPage() {
               {Object.keys(groupedWaters).sort().map((letter) => (
                 <div key={letter} id={`letter-${letter}`} className="scroll-mt-48">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="w-12 h-12 rounded-xl bg-sunset-500 text-white font-display text-2xl font-bold flex items-center justify-center">
+                    <span className="w-12 h-12 rounded-xl bg-sunset-600 text-white font-display text-2xl font-bold flex items-center justify-center">
                       {letter}
                     </span>
                     <div className="h-px flex-grow bg-river-200" />

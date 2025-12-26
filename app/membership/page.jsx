@@ -55,12 +55,12 @@ export default function MembershipPage() {
                 }`}
               >
                 {type.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-sunset-500 text-white text-sm font-semibold rounded-full">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-sunset-600 text-white text-sm font-semibold rounded-full">
                     Most Popular
                   </span>
                 )}
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
-                  type.featured ? 'bg-sunset-500' : 'bg-river-700'
+                  type.featured ? 'bg-sunset-600' : 'bg-river-700'
                 }`}>
                   <type.icon className="w-7 h-7 text-white" />
                 </div>

@@ -164,7 +164,7 @@ export default function ClubAffiliationPage() {
                   transition={{ delay: index * 0.1 }}
                   className="flex gap-6 bg-white p-6 rounded-xl"
                 >
-                  <div className="w-12 h-12 rounded-full bg-sunset-500 text-white font-display text-xl font-bold flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-sunset-600 text-white font-display text-xl font-bold flex items-center justify-center shrink-0">
                     {item.step}
                   </div>
                   <div>

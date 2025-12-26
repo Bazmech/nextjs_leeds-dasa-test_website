@@ -67,7 +67,7 @@ export default function IndividualMembershipPage() {
                     <div className="flex items-center gap-4">
                       <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                         selectedType === option.key
-                          ? 'border-sunset-500 bg-sunset-500'
+                          ? 'border-sunset-600 bg-sunset-600'
                           : 'border-river-300'
                       }`}>
                         {selectedType === option.key && (
@@ -76,7 +76,7 @@ export default function IndividualMembershipPage() {
                       </div>
                       <div className="text-left">
                         <span className="font-semibold text-river-900">{option.label}</span>
-                        <span className="text-river-500 text-sm ml-2">({option.age})</span>
+                        <span className={`text-sm ml-2 ${selectedType === option.key ? 'text-river-700' : 'text-river-600'}`}>({option.age})</span>
                       </div>
                     </div>
                     <span className="font-display text-2xl font-bold text-river-900">

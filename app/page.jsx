@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* Instant Access Banner */}
-      <section className="bg-sunset-500 py-6">
+      <section className="bg-sunset-600 py-6">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
             <CreditCard className="w-8 h-8 text-white" aria-hidden="true" />

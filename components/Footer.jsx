@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" aria-label="Leeds DASA - Home" className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 bg-sunset-500 rounded-xl">
+              <div className="flex items-center justify-center w-12 h-12 bg-sunset-600 rounded-xl">
                 <Fish className="w-7 h-7 text-white" aria-hidden="true" />
               </div>
               <div>
@@ -87,7 +87,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
-                className="flex items-center justify-center w-10 h-10 bg-river-900 hover:bg-sunset-500 rounded-lg transition-colors"
+                className="flex items-center justify-center w-10 h-10 bg-river-900 hover:bg-sunset-600 rounded-lg transition-colors"
               >
                 <Facebook className="w-5 h-5" aria-hidden="true" />
               </a>

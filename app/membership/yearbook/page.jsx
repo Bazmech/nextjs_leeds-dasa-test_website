@@ -70,7 +70,7 @@ export default function YearbookPage() {
               </div>
 
               {/* Badge */}
-              <div className="absolute -bottom-4 -right-4 bg-sunset-500 text-white px-6 py-3 rounded-xl shadow-lg">
+              <div className="absolute -bottom-4 -right-4 bg-sunset-600 text-white px-6 py-3 rounded-xl shadow-lg">
                 <span className="font-display text-lg font-bold">Now Available</span>
               </div>
             </motion.div>
