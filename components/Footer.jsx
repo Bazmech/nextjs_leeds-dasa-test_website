@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" aria-label="Leeds DASA - Home" className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 bg-sunset-600 rounded-xl">
+              <div className="flex items-center justify-center w-12 h-12 bg-sunset-700 rounded-xl">
                 <Fish className="w-7 h-7 text-white" aria-hidden="true" />
               </div>
               <div>
@@ -65,7 +65,7 @@ export default function Footer() {
             {/* Contact info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-sunset-400 mt-0.5 shrink-0" aria-hidden="true" />
+                <MapPin className="w-5 h-5 text-sunset-500 mt-0.5 shrink-0" aria-hidden="true" />
                 <span className="text-river-200 text-sm">
                   The Anglers Club, 75 Stoney Rock Lane,<br />
                   Beckett Street, Leeds LS9 7TB
@@ -75,7 +75,7 @@ export default function Footer() {
                 href="mailto:info@leedsdasa.co.uk" 
                 className="flex items-center gap-3 text-river-200 hover:text-white transition-colors"
               >
-                <Mail className="w-5 h-5 text-sunset-400 shrink-0" aria-hidden="true" />
+                <Mail className="w-5 h-5 text-sunset-500 shrink-0" aria-hidden="true" />
                 <span className="text-sm">info@leedsdasa.co.uk</span>
               </a>
             </div>
@@ -87,7 +87,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
-                className="flex items-center justify-center w-10 h-10 bg-river-900 hover:bg-sunset-600 rounded-lg transition-colors"
+                className="flex items-center justify-center w-10 h-10 bg-river-900 hover:bg-sunset-700 rounded-lg transition-colors"
               >
                 <Facebook className="w-5 h-5" aria-hidden="true" />
               </a>

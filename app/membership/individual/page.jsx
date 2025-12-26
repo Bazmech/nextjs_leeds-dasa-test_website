@@ -67,7 +67,7 @@ export default function IndividualMembershipPage() {
                     <div className="flex items-center gap-4">
                       <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                         selectedType === option.key
-                          ? 'border-sunset-600 bg-sunset-600'
+                          ? 'border-sunset-700 bg-sunset-700'
                           : 'border-river-300'
                       }`}>
                         {selectedType === option.key && (
@@ -87,7 +87,7 @@ export default function IndividualMembershipPage() {
               </div>
 
               {/* Family option */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-sunset-500 to-sunset-600 text-white mb-8">
+              <div className="p-4 rounded-xl bg-gradient-to-r from-sunset-600 to-sunset-700 text-white mb-8">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="font-semibold">Family Membership</span>

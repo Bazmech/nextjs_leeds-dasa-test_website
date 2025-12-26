@@ -70,7 +70,7 @@ export default function YearbookPage() {
               </div>
 
               {/* Badge */}
-              <div className="absolute -bottom-4 -right-4 bg-sunset-600 text-white px-6 py-3 rounded-xl shadow-lg">
+              <div className="absolute -bottom-4 -right-4 bg-sunset-700 text-white px-6 py-3 rounded-xl shadow-lg">
                 <span className="font-display text-lg font-bold">Now Available</span>
               </div>
             </motion.div>
@@ -100,7 +100,7 @@ export default function YearbookPage() {
                     transition={{ delay: index * 0.1 }}
                     className="p-4 rounded-xl bg-river-50"
                   >
-                    <feature.icon className="w-8 h-8 text-sunset-500 mb-3" />
+                    <feature.icon className="w-8 h-8 text-sunset-600 mb-3" />
                     <h3 className="font-semibold text-river-900 mb-1">{feature.title}</h3>
                     <p className="text-river-600 text-sm">{feature.description}</p>
                   </motion.div>

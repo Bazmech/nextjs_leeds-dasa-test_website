@@ -55,12 +55,12 @@ export default function MembershipPage() {
                 }`}
               >
                 {type.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-sunset-600 text-white text-sm font-semibold rounded-full">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-sunset-700 text-white text-sm font-semibold rounded-full">
                     Most Popular
                   </span>
                 )}
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
-                  type.featured ? 'bg-sunset-600' : 'bg-river-700'
+                  type.featured ? 'bg-sunset-700' : 'bg-river-700'
                 }`}>
                   <type.icon className="w-7 h-7 text-white" />
                 </div>
@@ -124,7 +124,7 @@ export default function MembershipPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-8 max-w-md mx-auto bg-gradient-to-br from-sunset-500 to-sunset-600 rounded-xl p-6 text-center text-white"
+            className="mt-8 max-w-md mx-auto bg-gradient-to-br from-sunset-600 to-sunset-700 rounded-xl p-6 text-center text-white"
           >
             <span className="font-semibold">Family Membership</span>
             <div className="my-4">

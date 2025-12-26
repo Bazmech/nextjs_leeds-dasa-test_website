@@ -82,7 +82,7 @@ export default function WatersPage() {
       </section>
 
       {/* Quick A-Z Link */}
-      <section className="py-12 bg-gradient-to-r from-sunset-500 to-sunset-600">
+      <section className="py-12 bg-gradient-to-r from-sunset-600 to-sunset-700">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-white">
@@ -156,7 +156,7 @@ export default function WatersPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-sunset-600 rounded-2xl mb-8"
+            className="inline-flex items-center justify-center w-20 h-20 bg-sunset-700 rounded-2xl mb-8"
           >
             <Fish className="w-10 h-10 text-white" />
           </motion.div>

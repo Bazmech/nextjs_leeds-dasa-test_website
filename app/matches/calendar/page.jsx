@@ -119,7 +119,7 @@ export default function MatchCalendarPage() {
                   <div className="grid md:grid-cols-[200px_1fr_200px] gap-6">
                     {/* Date */}
                     <div className={`p-6 flex flex-col items-center justify-center text-center ${
-                      match.type === 'Championship' ? 'bg-gradient-to-br from-sunset-500 to-sunset-600' :
+                      match.type === 'Championship' ? 'bg-gradient-to-br from-sunset-600 to-sunset-700' :
                       match.type === 'League' ? 'bg-gradient-to-br from-river-600 to-river-700' :
                       'bg-gradient-to-br from-earth-500 to-earth-600'
                     } text-white`}>

@@ -46,7 +46,7 @@ export default function AnglersClubPage() {
               </div>
 
               {/* Decorative badge */}
-              <div className="absolute -bottom-6 -right-6 bg-sunset-600 text-white p-6 rounded-2xl shadow-xl">
+              <div className="absolute -bottom-6 -right-6 bg-sunset-700 text-white p-6 rounded-2xl shadow-xl">
                 <span className="block font-display text-3xl font-bold">Est.</span>
                 <span className="font-display text-4xl font-bold">1903</span>
               </div>
@@ -74,7 +74,7 @@ export default function AnglersClubPage() {
 
               {/* Address */}
               <div className="flex items-start gap-4 p-6 bg-river-50 rounded-xl mb-6">
-                <MapPin className="w-6 h-6 text-sunset-500 shrink-0 mt-1" />
+                <MapPin className="w-6 h-6 text-sunset-600 shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-river-900 mb-2">Address</h3>
                   <address className="text-river-600 not-italic leading-relaxed">

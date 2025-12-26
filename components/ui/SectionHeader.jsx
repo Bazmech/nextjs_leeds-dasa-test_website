@@ -30,7 +30,7 @@ export default function SectionHeader({
         {link && (
           <Link
             href={link}
-            className={`inline-flex items-center gap-2 font-semibold transition-colors group mt-2 ${dark ? 'text-sunset-400 hover:text-sunset-300' : 'text-sunset-700 hover:text-sunset-800'}`}
+            className={`inline-flex items-center gap-2 font-semibold transition-colors group mt-2 ${dark ? 'text-sunset-500 hover:text-sunset-400' : 'text-sunset-700 hover:text-sunset-800'}`}
           >
             {linkText}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />

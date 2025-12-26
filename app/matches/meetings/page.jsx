@@ -108,15 +108,15 @@ export default function MeetingsPage() {
               </p>
               <ul className="space-y-2 text-river-600 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   Held monthly at The Anglers Club
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   Usually 7:30pm start time
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   Minutes distributed to all clubs
                 </li>
               </ul>
@@ -128,7 +128,7 @@ export default function MeetingsPage() {
               viewport={{ once: true }}
               className="bg-white rounded-xl p-8"
             >
-              <div className="w-14 h-14 rounded-xl bg-sunset-600 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-xl bg-sunset-700 flex items-center justify-center mb-6">
                 <Calendar className="w-7 h-7 text-white" />
               </div>
               <h3 className="font-display text-xl font-bold text-river-900 mb-4">
@@ -140,15 +140,15 @@ export default function MeetingsPage() {
               </p>
               <ul className="space-y-2 text-river-600 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   Held annually in March
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   All members welcome
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sunset-600 rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-sunset-700 rounded-full" />
                   Election of officers
                 </li>
               </ul>

@@ -76,7 +76,7 @@ export default function ClubAffiliationPage() {
                     transition={{ delay: index * 0.1 }}
                     className="p-5 rounded-xl border border-river-200 hover:border-river-300 transition-colors"
                   >
-                    <benefit.icon className="w-10 h-10 text-sunset-500 mb-4" />
+                    <benefit.icon className="w-10 h-10 text-sunset-600 mb-4" />
                     <h3 className="font-semibold text-river-900 mb-2">{benefit.title}</h3>
                     <p className="text-river-600 text-sm">{benefit.description}</p>
                   </motion.div>
@@ -164,7 +164,7 @@ export default function ClubAffiliationPage() {
                   transition={{ delay: index * 0.1 }}
                   className="flex gap-6 bg-white p-6 rounded-xl"
                 >
-                  <div className="w-12 h-12 rounded-full bg-sunset-600 text-white font-display text-xl font-bold flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-sunset-700 text-white font-display text-xl font-bold flex items-center justify-center shrink-0">
                     {item.step}
                   </div>
                   <div>

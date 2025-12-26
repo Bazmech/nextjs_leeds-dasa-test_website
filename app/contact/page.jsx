@@ -291,7 +291,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4 p-6 bg-river-50 rounded-xl">
-                  <div className="w-12 h-12 rounded-lg bg-sunset-600 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-sunset-700 flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>

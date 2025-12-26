@@ -103,7 +103,7 @@ export default function HomePage() {
                 { icon: Calendar, value: '365', label: 'Days Access' },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <stat.icon className="w-5 h-5 text-sunset-400" aria-hidden="true" />
+                  <stat.icon className="w-5 h-5 text-sunset-500" aria-hidden="true" />
                   <div>
                     <span className="font-display text-2xl font-bold text-white">{stat.value}</span>
                     <span className="ml-2 text-river-200">{stat.label}</span>
@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* Instant Access Banner */}
-      <section className="bg-sunset-600 py-6">
+      <section className="bg-sunset-700 py-6">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
             <CreditCard className="w-8 h-8 text-white" aria-hidden="true" />
@@ -248,7 +248,7 @@ export default function HomePage() {
                   <span className="text-sm">{match.venue}</span>
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/10">
-                  <span className="text-sunset-400 font-medium">
+                  <span className="text-sunset-500 font-medium">
                     {new Date(match.date).toLocaleDateString('en-GB', { 
                       weekday: 'long',
                       day: 'numeric', 

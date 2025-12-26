@@ -29,9 +29,9 @@
 
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-3 
-           bg-sunset-600 hover:bg-sunset-700 text-white font-semibold 
+           bg-sunset-700 hover:bg-sunset-800 text-white font-semibold 
            rounded-lg transition-all duration-300 
-           hover:shadow-lg hover:shadow-sunset-600/25 
+           hover:shadow-lg hover:shadow-sunset-700/25 
            active:scale-[0.98];
   }
 

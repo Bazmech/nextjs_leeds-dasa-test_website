@@ -132,7 +132,7 @@ export default function ForumPage() {
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="bg-river-800 p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-sunset-600 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-sunset-700 rounded-lg flex items-center justify-center">
                       <Mail className="w-5 h-5 text-white" />
                     </div>
                     <div className="text-white">
@@ -164,7 +164,7 @@ export default function ForumPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-sunset-600 rounded-2xl mb-8"
+            className="inline-flex items-center justify-center w-20 h-20 bg-sunset-700 rounded-2xl mb-8"
           >
             <MessageSquare className="w-10 h-10 text-white" />
           </motion.div>
