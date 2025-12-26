@@ -215,7 +215,9 @@ export default function Header() {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-river-950/5 py-2'
-          : 'bg-transparent py-4'
+          : mobileMenuOpen
+            ? 'bg-river-900 py-4'
+            : 'bg-transparent py-4'
       )}
     >
       <nav className="container-custom" ref={menuRef} aria-label="Main navigation">
