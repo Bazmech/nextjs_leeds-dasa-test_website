@@ -6,7 +6,7 @@ import { ArrowRight, Fish, MapPin, Users, Calendar, CreditCard, ChevronRight } f
 import SectionHeader from '@/components/ui/SectionHeader';
 import WaterCard from '@/components/ui/WaterCard';
 import FeatureCard from '@/components/ui/FeatureCard';
-import { rivers, canals, lakes, membershipBenefits, upcomingMatches } from '@/lib/data';
+import { rivers, canals, lakes, membershipBenefits } from '@/lib/data';
 
 export default function HomePage() {
   return (
@@ -209,65 +209,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Upcoming Matches */}
-      <section className="py-24 bg-gradient-to-br from-river-900 to-river-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-water-pattern opacity-5" />
-        
-        <div className="container-custom relative z-10">
-          <SectionHeader
-            title="Upcoming Matches"
-            subtitle="Compete in our regular matches and championships"
-            link="/matches/calendar"
-            linkText="View full calendar"
-            dark
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {upcomingMatches.slice(0, 4).map((match, index) => (
-              <motion.div
-                key={match.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    match.type === 'League' ? 'bg-river-400/20 text-river-200' :
-                    match.type === 'Championship' ? 'bg-sunset-400/20 text-sunset-200' :
-                    'bg-white/10 text-white/80'
-                  }`}>
-                    {match.type}
-                  </span>
-                  <span className="text-river-200 text-sm">{match.time}</span>
-                </div>
-                <h3 className="font-display text-xl font-bold text-white mb-2">{match.name}</h3>
-                <div className="flex items-center gap-2 text-river-200">
-                  <MapPin className="w-4 h-4" aria-hidden="true" />
-                  <span className="text-sm">{match.venue}</span>
-                </div>
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <span className="text-sunset-500 font-medium">
-                    {new Date(match.date).toLocaleDateString('en-GB', { 
-                      weekday: 'long',
-                      day: 'numeric', 
-                      month: 'long', 
-                      year: 'numeric' 
-                    })}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Decorative styling */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-river-600 to-transparent" />
-      </section>
-
       {/* Anglers Club CTA */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-river-50">
         <div className="container-custom">
           <div className="bg-gradient-to-br from-earth-100 to-earth-50 rounded-3xl overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-8">
