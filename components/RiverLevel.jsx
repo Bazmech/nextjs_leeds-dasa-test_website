@@ -26,39 +26,21 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
     setError(null);
 
     try {
-      // First fetch station info to find the level-stage measure
-      const stationRes = await fetch(
-        `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}`
-      );
+      // Fetch station info and latest reading
+      const [stationRes, readingsRes] = await Promise.all([
+        fetch(
+          `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}`
+        ),
+        fetch(
+          `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}/readings?_sorted&_limit=48`
+        ),
+      ]);
 
-      if (!stationRes.ok) {
-        throw new Error("Failed to fetch station data");
+      if (!stationRes.ok || !readingsRes.ok) {
+        throw new Error("Failed to fetch data");
       }
 
       const stationData = await stationRes.json();
-      
-      // Find the level-stage measure (not flow-logged)
-      const measures = stationData.items?.measures || [];
-      const levelMeasure = measures.find(
-        (m) => m.parameter === "level" || m["@id"]?.includes("level-stage")
-      );
-
-      if (!levelMeasure) {
-        throw new Error("No water level data available for this station");
-      }
-
-      // Extract the measure ID from the @id URL
-      const measureId = levelMeasure["@id"];
-
-      // Fetch readings specifically for the level-stage measure
-      const readingsRes = await fetch(
-        `${measureId}/readings?_sorted&_limit=48`
-      );
-
-      if (!readingsRes.ok) {
-        throw new Error("Failed to fetch readings");
-      }
-
       const readingsData = await readingsRes.json();
 
       setData(stationData.items);
@@ -104,16 +86,10 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
 
   // Get level status
   const getLevelStatus = () => {
-    if (!data?.measures) return null;
-    
-    // Find the level-stage measure
-    const measure = data.measures.find(
-      (m) => m.parameter === "level" || m["@id"]?.includes("level-stage")
-    );
-    
-    if (!measure) return null;
-    
+    if (!data?.measures?.[0]) return null;
+    const measure = data.measures[0];
     const latest = readings[0]?.value;
+
     if (!latest) return null;
 
     const typicalHigh = measure.typicalRangeHigh;
