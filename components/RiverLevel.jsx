@@ -32,7 +32,7 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
           `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}`
         ),
         fetch(
-          `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}/readings?_sorted&_limit=48`
+          `https://environment.data.gov.uk/flood-monitoring/id/stations/${stationId}/readings?_sorted&_limit=48&parameter=level`
         ),
       ]);
 
