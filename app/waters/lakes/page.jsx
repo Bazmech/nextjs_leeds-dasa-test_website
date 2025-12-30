@@ -5,7 +5,31 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Trees } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import WaterCard from '@/components/ui/WaterCard';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import { lakes } from '@/lib/data';
+
+const lakeFaqs = [
+  {
+    question: 'Do I need an Environment Agency rod licence?',
+    answer: 'Yes, all anglers aged 13 or over must have a valid EA rod licence to fish any of our waters. This is in addition to your Leeds DASA membership. Licences can be purchased online at gov.uk.',
+  },
+  {
+    question: 'Are lakes open all year round?',
+    answer: 'Yes, unlike rivers there is no statutory close season on stillwaters. Our lakes are open for fishing 365 days a year, subject to any temporary closures for maintenance or matches.',
+  },
+  {
+    question: 'Can I use multiple rods on lakes?',
+    answer: 'The number of rods permitted varies by venue. Most lakes allow 2-3 rods. Please check individual venue rules for specific rod limits and any restrictions.',
+  },
+  {
+    question: 'Is night fishing allowed?',
+    answer: 'Night fishing is permitted on some of our lakes. Check individual venue pages for night fishing rules and any restrictions that may apply.',
+  },
+  {
+    question: 'Are there any bait restrictions?',
+    answer: 'Some venues have restrictions on certain baits such as boilies, nuts, or particle baits. Always check the individual venue rules before fishing.',
+  },
+];
 
 export default function LakesPage() {
   return (
@@ -85,6 +109,32 @@ export default function LakesPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-24 bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="section-title mb-4">Frequently Asked Questions</h2>
+            <p className="section-subtitle mx-auto">
+              Common questions about lake fishing with Leeds DASA
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <FAQAccordion faqs={lakeFaqs} />
+          </motion.div>
         </div>
       </section>
 

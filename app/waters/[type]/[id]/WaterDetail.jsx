@@ -8,8 +8,32 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import RiverLevel from '@/components/RiverLevel';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import { rivers, canals, lakes } from '@/lib/data';
 import { riverStations } from '@/lib/riverStations';
+
+const waterFaqs = [
+  {
+    question: 'Lorem ipsum dolor sit amet consectetur adipiscing?',
+    answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
+  {
+    question: 'Duis aute irure dolor in reprehenderit?',
+    answer: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    question: 'Sed ut perspiciatis unde omnis iste natus error?',
+    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+  },
+  {
+    question: 'Nemo enim ipsam voluptatem quia voluptas sit?',
+    answer: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+  },
+  {
+    question: 'Neque porro quisquam est qui dolorem ipsum?',
+    answer: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
+  },
+];
 
 const allWaters = {
   rivers,
@@ -138,6 +162,7 @@ export default function WaterDetail({ type, id }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
+                className="mb-8"
               >
                 <h2 className="font-display text-2xl font-bold text-river-900 mb-4">Location</h2>
                 <div className="aspect-video rounded-2xl bg-river-200 flex items-center justify-center">
@@ -146,6 +171,18 @@ export default function WaterDetail({ type, id }) {
                     <span className="text-river-500">Map view</span>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* FAQs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <h2 className="font-display text-2xl font-bold text-river-900 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                <FAQAccordion faqs={waterFaqs} />
               </motion.div>
             </div>
 

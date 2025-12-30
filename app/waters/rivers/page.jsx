@@ -5,7 +5,31 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Waves } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import WaterCard from '@/components/ui/WaterCard';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import { rivers } from '@/lib/data';
+
+const riverFaqs = [
+  {
+    question: 'Do I need an Environment Agency rod licence?',
+    answer: 'Yes, all anglers aged 13 or over must have a valid EA rod licence to fish any of our waters. This is in addition to your Leeds DASA membership. Licences can be purchased online at gov.uk.',
+  },
+  {
+    question: 'Are there any close seasons on rivers?',
+    answer: 'Yes, there is a statutory close season on rivers from 15th March to 15th June inclusive. During this time, no fishing is permitted on any river stretches. Lakes and canals remain open year-round.',
+  },
+  {
+    question: 'What fish species can I expect to catch?',
+    answer: 'Our rivers hold excellent stocks of chub, barbel, roach, dace, perch, and pike. Some stretches also contain bream and carp. Check individual venue pages for species information.',
+  },
+  {
+    question: 'Can I fish at night on rivers?',
+    answer: 'Night fishing is permitted on most of our river stretches, but please check individual venue rules as some have restrictions. Always ensure you have adequate lighting and safety equipment.',
+  },
+  {
+    question: 'What are the parking arrangements?',
+    answer: 'Parking varies by venue. Some stretches have dedicated car parks, while others require roadside parking. Check the individual venue pages for specific parking information and any charges.',
+  },
+];
 
 export default function RiversPage() {
   return (
@@ -85,6 +109,32 @@ export default function RiversPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-24 bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="section-title mb-4">Frequently Asked Questions</h2>
+            <p className="section-subtitle mx-auto">
+              Common questions about river fishing with Leeds DASA
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <FAQAccordion faqs={riverFaqs} />
+          </motion.div>
         </div>
       </section>
 

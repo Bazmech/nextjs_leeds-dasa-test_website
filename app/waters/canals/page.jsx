@@ -5,7 +5,31 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Navigation } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import WaterCard from '@/components/ui/WaterCard';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import { canals } from '@/lib/data';
+
+const canalFaqs = [
+  {
+    question: 'Do I need an Environment Agency rod licence?',
+    answer: 'Yes, all anglers aged 13 or over must have a valid EA rod licence to fish any of our waters. This is in addition to your Leeds DASA membership. Licences can be purchased online at gov.uk.',
+  },
+  {
+    question: 'Are canals open all year round?',
+    answer: 'Yes, there is no close season on canals. You can fish our canal stretches 365 days a year, though you may find some sections affected by boat traffic during the warmer months.',
+  },
+  {
+    question: 'What tackle is best for canal fishing?',
+    answer: 'Light tackle works best on canals. A whip or short pole is ideal for the far shelf, while a waggler rod covers the open water. Fine lines (2-3lb) and small hooks (18-22) will catch more fish.',
+  },
+  {
+    question: 'Can I fish from both sides of the canal?',
+    answer: 'Our permits typically cover the towpath side only. Always check venue-specific information as access can vary between stretches.',
+  },
+  {
+    question: 'What about boat traffic?',
+    answer: 'Canals are working waterways and boats have priority. Be prepared to lift your tackle to let boats pass. Early mornings and evenings generally have less traffic.',
+  },
+];
 
 export default function CanalsPage() {
   return (
@@ -85,6 +109,32 @@ export default function CanalsPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-24 bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="section-title mb-4">Frequently Asked Questions</h2>
+            <p className="section-subtitle mx-auto">
+              Common questions about canal fishing with Leeds DASA
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <FAQAccordion faqs={canalFaqs} />
+          </motion.div>
         </div>
       </section>
 
