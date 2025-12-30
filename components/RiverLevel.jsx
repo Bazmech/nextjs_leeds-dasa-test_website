@@ -13,6 +13,95 @@ import {
   Droplets,
 } from "lucide-react";
 
+// Vertical gauge showing current level vs typical range
+function LevelGauge({ currentLevel, typicalHigh, typicalLow }) {
+  if (!typicalHigh || !typicalLow) return null;
+
+  // Calculate gauge parameters
+  const range = typicalHigh - typicalLow;
+  const padding = range * 0.5; // Add 50% padding above and below
+  const gaugeMin = Math.max(0, typicalLow - padding);
+  const gaugeMax = typicalHigh + padding;
+  const gaugeRange = gaugeMax - gaugeMin;
+
+  // Calculate positions as percentages (from bottom)
+  const currentPos = ((currentLevel - gaugeMin) / gaugeRange) * 100;
+  const typicalHighPos = ((typicalHigh - gaugeMin) / gaugeRange) * 100;
+  const typicalLowPos = ((typicalLow - gaugeMin) / gaugeRange) * 100;
+
+  // Determine status
+  const isHigh = currentLevel > typicalHigh;
+  const isLow = currentLevel < typicalLow;
+  const statusColor = isHigh ? 'bg-red-500' : isLow ? 'bg-blue-500' : 'bg-green-500';
+
+  return (
+    <div className="flex items-stretch gap-3 p-3 bg-white/50 rounded-xl">
+      {/* Gauge bar */}
+      <div className="relative w-8 h-32 rounded-lg overflow-hidden bg-gradient-to-b from-red-200 via-green-200 to-blue-200">
+        {/* High zone (red) */}
+        <div 
+          className="absolute left-0 right-0 top-0 bg-red-400/60"
+          style={{ height: `${100 - typicalHighPos}%` }}
+        />
+        
+        {/* Normal zone (green) */}
+        <div 
+          className="absolute left-0 right-0 bg-green-400/60"
+          style={{ 
+            top: `${100 - typicalHighPos}%`,
+            height: `${typicalHighPos - typicalLowPos}%`
+          }}
+        />
+        
+        {/* Low zone (blue) */}
+        <div 
+          className="absolute left-0 right-0 bottom-0 bg-blue-400/60"
+          style={{ height: `${typicalLowPos}%` }}
+        />
+
+        {/* Current level marker */}
+        <div 
+          className={`absolute left-0 right-0 h-1.5 ${statusColor} shadow-lg`}
+          style={{ bottom: `${Math.min(100, Math.max(0, currentPos))}%`, transform: 'translateY(50%)' }}
+        >
+          <div className={`absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 ${statusColor} rotate-45`} />
+        </div>
+
+        {/* Typical high line */}
+        <div 
+          className="absolute left-0 right-0 h-px bg-red-600 border-t border-dashed border-red-600"
+          style={{ bottom: `${typicalHighPos}%` }}
+        />
+
+        {/* Typical low line */}
+        <div 
+          className="absolute left-0 right-0 h-px bg-blue-600 border-t border-dashed border-blue-600"
+          style={{ bottom: `${typicalLowPos}%` }}
+        />
+      </div>
+
+      {/* Labels */}
+      <div className="flex flex-col justify-between text-xs py-1 flex-1">
+        <div className="flex items-center gap-1">
+          <span className="text-red-600 font-medium">{typicalHigh.toFixed(2)}m</span>
+          <span className="text-river-400">High</span>
+        </div>
+        
+        <div className="flex items-center">
+          <span className={`font-display text-2xl font-bold ${isHigh ? 'text-red-600' : isLow ? 'text-blue-600' : 'text-green-600'}`}>
+            {currentLevel.toFixed(2)}m
+          </span>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className="text-blue-600 font-medium">{typicalLow.toFixed(2)}m</span>
+          <span className="text-river-400">Low</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function RiverLevel({ stationId, stationName, riverName }) {
   const [data, setData] = useState(null);
   const [readings, setReadings] = useState([]);
@@ -86,14 +175,13 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
 
   // Get level status
   const getLevelStatus = () => {
-    if (!data?.measures?.[0]) return null;
-    const measure = data.measures[0];
+    if (!data?.stageScale) return null;
     const latest = readings[0]?.value;
 
     if (!latest) return null;
 
-    const typicalHigh = measure.typicalRangeHigh;
-    const typicalLow = measure.typicalRangeLow;
+    const typicalHigh = data.stageScale.typicalRangeHigh;
+    const typicalLow = data.stageScale.typicalRangeLow;
 
     if (typicalHigh && latest > typicalHigh) {
       return { status: "high", color: "text-orange-500", bg: "bg-orange-50" };
@@ -172,76 +260,67 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
         </button>
       </div>
 
-      {/* Current Level */}
+      {/* Status and trend indicator */}
       {latestReading && (
-        <div className="mb-4">
-          <div className="flex items-end gap-2 mb-2">
-            <span className="font-display text-4xl font-bold text-river-900">
-              {latestReading.value.toFixed(2)}
-            </span>
-            <span className="text-river-600 text-lg mb-1">metres</span>
-
-            {/* Trend indicator */}
-            <div className="ml-auto flex items-center gap-1">
-              {trend === "rising" && (
-                <div className="flex items-center gap-1 text-orange-500">
-                  <TrendingUp className="w-5 h-5" />
-                  <span className="text-sm font-medium">Rising</span>
-                </div>
-              )}
-              {trend === "falling" && (
-                <div className="flex items-center gap-1 text-blue-500">
-                  <TrendingDown className="w-5 h-5" />
-                  <span className="text-sm font-medium">Falling</span>
-                </div>
-              )}
-              {trend === "stable" && (
-                <div className="flex items-center gap-1 text-green-500">
-                  <Minus className="w-5 h-5" />
-                  <span className="text-sm font-medium">Stable</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Level status */}
+        <div className="flex items-center justify-between mb-4">
+          {/* Level status badge */}
           {levelStatus && (
-            <div
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium ${levelStatus.bg} ${levelStatus.color}`}
-            >
-              {levelStatus.status === "high" && (
-                <>
-                  <AlertTriangle className="w-4 h-4" />
-                  Above typical range
-                </>
-              )}
-              {levelStatus.status === "low" && (
-                <>
-                  <Droplets className="w-4 h-4" />
-                  Below typical range
-                </>
-              )}
-              {levelStatus.status === "normal" && (
-                <>
-                  <Droplets className="w-4 h-4" />
-                  Within typical range
-                </>
-              )}
-            </div>
+            <span className={`px-2 py-1 rounded text-white text-xs font-medium ${
+              levelStatus.status === 'high' ? 'bg-orange-500' : 
+              levelStatus.status === 'low' ? 'bg-blue-500' : 'bg-green-500'
+            }`}>
+              {levelStatus.status === 'high' ? 'High' : 
+               levelStatus.status === 'low' ? 'Low' : 'Normal'}
+            </span>
           )}
+
+          {/* Trend indicator - right aligned */}
+          <div className="ml-auto">
+            {trend === "rising" && (
+              <div className="flex items-center gap-1 text-orange-500">
+                <TrendingUp className="w-5 h-5" aria-hidden="true" />
+                <span className="text-sm font-medium">Rising</span>
+              </div>
+            )}
+            {trend === "falling" && (
+              <div className="flex items-center gap-1 text-blue-500">
+                <TrendingDown className="w-5 h-5" aria-hidden="true" />
+                <span className="text-sm font-medium">Falling</span>
+              </div>
+            )}
+            {trend === "stable" && (
+              <div className="flex items-center gap-1 text-green-500">
+                <Minus className="w-5 h-5" aria-hidden="true" />
+                <span className="text-sm font-medium">Stable</span>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
-      {/* Mini chart - last 12 readings */}
+      {/* Vertical Level Gauge */}
+      {latestReading && data?.stageScale && (
+        <div className="mb-4">
+          <LevelGauge 
+            currentLevel={latestReading.value}
+            typicalHigh={data.stageScale.typicalRangeHigh}
+            typicalLow={data.stageScale.typicalRangeLow}
+          />
+        </div>
+      )}
+
+      {/* Mini chart - hourly readings (every 4th reading since data is every 15 mins) */}
       {readings.length > 1 && (
         <div className="mb-4">
           <div className="flex items-end gap-1 h-12">
             {readings
+              .filter((_, index) => index % 4 === 0) // Get hourly readings
               .slice(0, 12)
               .reverse()
-              .map((reading, i) => {
-                const min = Math.min(...readings.slice(0, 12).map((r) => r.value));
-                const max = Math.max(...readings.slice(0, 12).map((r) => r.value));
+              .map((reading, i, arr) => {
+                const hourlyReadings = readings.filter((_, index) => index % 4 === 0).slice(0, 12);
+                const min = Math.min(...hourlyReadings.map((r) => r.value));
+                const max = Math.max(...hourlyReadings.map((r) => r.value));
                 const range = max - min || 1;
                 const height = ((reading.value - min) / range) * 100;
                 return (
@@ -255,7 +334,7 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
               })}
           </div>
           <div className="flex justify-between text-xs text-river-400 mt-1">
-            <span>6 hrs ago</span>
+            <span>12 hrs ago</span>
             <span>Now</span>
           </div>
         </div>
