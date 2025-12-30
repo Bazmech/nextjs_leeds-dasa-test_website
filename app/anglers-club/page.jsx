@@ -133,9 +133,9 @@ export default function AnglersClubPage() {
                   }`}
                 >
                   <span className="font-semibold text-river-900 capitalize">{day}</span>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-river-400" />
-                    <span className="text-river-600">{hours}</span>
+                  <div className="flex items-center gap-2 w-40">
+                    <Clock className="w-4 h-4 text-river-400 shrink-0" />
+                    <span className="text-river-600 text-left">{hours}</span>
                   </div>
                 </motion.div>
               ))}
