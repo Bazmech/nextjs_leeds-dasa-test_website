@@ -161,18 +161,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-river-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-river-300 text-sm">
+        <div className="border-t border-river-800 mt-12 pt-8">
+          <p className="text-river-300 text-sm text-center md:text-left">
             © <CurrentYear /> Leeds and District ASA. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-river-300 text-sm">
-            <span>We accept</span>
-            <div className="flex items-center gap-2">
-              <div className="px-2 py-1 bg-river-900 rounded text-xs font-medium">PayPal</div>
-              <div className="px-2 py-1 bg-river-900 rounded text-xs font-medium">Visa</div>
-              <div className="px-2 py-1 bg-river-900 rounded text-xs font-medium">Mastercard</div>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

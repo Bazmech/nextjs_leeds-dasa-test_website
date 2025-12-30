@@ -115,15 +115,6 @@ export default function IndividualMembershipPage() {
                   </div>
                 </div>
 
-                {/* Payment methods */}
-                <div className="flex items-center justify-center gap-4 pt-4 border-t border-river-100">
-                  <span className="text-river-500 text-sm">We accept:</span>
-                  <div className="flex items-center gap-2">
-                    <div className="px-3 py-1 bg-river-100 rounded text-xs font-medium text-river-700">PayPal</div>
-                    <div className="px-3 py-1 bg-river-100 rounded text-xs font-medium text-river-700">Visa</div>
-                    <div className="px-3 py-1 bg-river-100 rounded text-xs font-medium text-river-700">Mastercard</div>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
