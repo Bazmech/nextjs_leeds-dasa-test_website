@@ -244,13 +244,12 @@ export default function RiverLevel({ stationId, stationName, riverName }) {
                 const max = Math.max(...readings.slice(0, 12).map((r) => r.value));
                 const range = max - min || 1;
                 const height = ((reading.value - min) / range) * 100;
-
                 return (
                   <div
                     key={i}
                     className="flex-1 bg-blue-400 rounded-t opacity-70 hover:opacity-100 transition-opacity"
-                    style={{ height: `${Math.max(10, height)}%` }}
-                    title={`${reading.value.toFixed(2)}m`}
+                    style={{ height: `${Math.max(20, height)}%` }}
+                    title={`${reading.value.toFixed(3)}m`}
                   />
                 );
               })}
