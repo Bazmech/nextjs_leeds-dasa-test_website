@@ -113,7 +113,7 @@ export default function AnglersClubPage() {
           >
             <h2 className="section-title mb-4">Opening Hours</h2>
             <p className="section-subtitle mx-auto">
-              Visit us any day of the week
+              Plan your visit to the club
             </p>
           </motion.div>
 

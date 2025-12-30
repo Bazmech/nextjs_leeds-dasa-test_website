@@ -313,10 +313,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-river-900 mb-2">Club Opening Hours</h3>
                     <p className="text-river-600">
-                      Monday - Thursday: 7pm - 11pm<br />
-                      Friday: 7pm - 12am<br />
-                      Saturday: 12pm - 12am<br />
-                      Sunday: 12pm - 10pm
+                      Sunday: 2pm - 9pm<br />
+                      Monday: 6pm - 11pm<br />
+                      Tuesday: Closed<br />
+                      Wednesday - Friday: 6pm - 11pm<br />
+                      Saturday: 4pm - 11pm
                     </p>
                   </div>
                 </div>
