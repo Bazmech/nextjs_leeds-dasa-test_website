@@ -48,7 +48,7 @@ export default function AnglersClubPage() {
               {/* Decorative badge */}
               <div className="absolute -bottom-6 -right-6 bg-sunset-700 text-white p-6 rounded-2xl shadow-xl">
                 <span className="block font-display text-3xl font-bold">Est.</span>
-                <span className="font-display text-4xl font-bold">1903</span>
+                <span className="font-display text-4xl font-bold">1891</span>
               </div>
             </motion.div>
 

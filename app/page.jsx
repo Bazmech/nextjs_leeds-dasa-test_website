@@ -99,7 +99,7 @@ export default function HomePage() {
             >
               {[
                 { icon: MapPin, value: '40+', label: 'Waters' },
-                { icon: Users, value: '1903', label: 'Est.' },
+                { icon: Users, value: '1891', label: 'Est.' },
                 { icon: Calendar, value: '365', label: 'Days Access' },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-3">

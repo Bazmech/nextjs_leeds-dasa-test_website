@@ -246,7 +246,7 @@ export default function Header() {
                 'block text-xs font-medium transition-colors duration-300',
                 isScrolled ? 'text-river-500' : 'text-white/80'
               )}>
-                Est. 1903
+                Est. 1891
               </span>
             </div>
           </Link>
