@@ -4,12 +4,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   ArrowLeft, MapPin, Fish, 
-  AlertTriangle, Check, Calendar, ArrowRight
+  AlertTriangle, Check, Calendar, ArrowRight,
+  Car, Waves, Footprints
 } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import RiverLevel from '@/components/RiverLevel';
 import FAQAccordion from '@/components/ui/FAQAccordion';
-import { rivers, canals, lakes } from '@/lib/data';
+import { rivers, canals, lakes, parkingDistances } from '@/lib/data';
 import { riverStations } from '@/lib/riverStations';
 
 const waterFaqs = [
@@ -45,6 +46,7 @@ export default function WaterDetail({ type, id }) {
   const waters = allWaters[type] || [];
   const water = waters.find(w => w.id === id);
   const station = type === 'rivers' ? riverStations[id] : null;
+  const parkingInfo = type === 'rivers' ? parkingDistances[id] : null;
 
   if (!water) {
     return (
@@ -156,6 +158,87 @@ export default function WaterDetail({ type, id }) {
                   ))}
                 </div>
               </motion.div>
+
+              {/* Parking to Riverbank Distance - only for rivers with data */}
+              {parkingInfo && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  className="mb-8"
+                >
+                  <h2 className="font-display text-2xl font-bold text-river-900 mb-4">
+                    Walk to Riverbank
+                  </h2>
+                  <div className="bg-gradient-to-r from-blue-50 to-river-50 rounded-2xl p-4 sm:p-6 border border-river-200">
+                    {/* Mobile: vertical stack, Desktop: horizontal */}
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+                      {/* Car icon */}
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center shadow-lg">
+                          <Car className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                        </div>
+                        <span className="text-river-600 font-medium text-sm sm:text-base">Parking</span>
+                      </div>
+                      
+                      {/* Distance indicator */}
+                      <div className="flex flex-col items-center gap-2 py-2 sm:py-0">
+                        {/* Arrow down on mobile */}
+                        <div className="flex sm:hidden text-river-300">
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </div>
+                        
+                        {parkingInfo.distance === 0 ? (
+                          <div className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full font-bold text-sm sm:text-base">
+                            <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <span>Park on bank!</span>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col sm:flex-row items-center gap-2">
+                            {/* Footprints - hidden on mobile */}
+                            <div className="hidden sm:flex items-center gap-1 text-river-400">
+                              {[...Array(Math.min(Math.ceil(parkingInfo.distance / 100), 8))].map((_, i) => (
+                                <Footprints key={i} className="w-4 h-4" style={{ opacity: 1 - (i * 0.1) }} />
+                              ))}
+                            </div>
+                            <div className="px-4 py-2 bg-white rounded-full shadow-sm border border-river-200">
+                              <span className="text-xl sm:text-2xl font-bold text-river-900">{parkingInfo.distance}</span>
+                              <span className="text-river-500 ml-1 text-sm sm:text-base">metres</span>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Arrow down on mobile */}
+                        <div className="flex sm:hidden text-river-300">
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </div>
+                      </div>
+                      
+                      {/* Riverbank icon */}
+                      <div className="flex items-center gap-3">
+                        <span className="hidden sm:inline text-river-600 font-medium text-sm sm:text-base">Riverbank</span>
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                          <Waves className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                        </div>
+                        <span className="sm:hidden text-river-600 font-medium text-sm">Riverbank</span>
+                      </div>
+                    </div>
+                    
+                    {/* Note if available */}
+                    {parkingInfo.note && (
+                      <div className="mt-4 pt-4 border-t border-river-200">
+                        <p className="text-xs sm:text-sm text-river-600 italic text-center">
+                          📝 {parkingInfo.note}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Map placeholder */}
               <motion.div
